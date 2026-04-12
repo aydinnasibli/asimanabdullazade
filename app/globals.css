@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@theme {
+  --color-border: var(--color-outline-variant);
+  --color-on-error-container: #410002;
+  --color-on-secondary-fixed: #1b1c1c;
+  --color-on-surface-variant: #474747;
+  --color-on-tertiary-container: #ffffff;
+  --color-surface-container-highest: #e2e2e2;
+  --color-on-primary: #e2e2e2;
+  --color-primary: #000000;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface: #f9f9f9;
+  --color-on-secondary-fixed-variant: #3b3b3b;
+  --color-tertiary: #3c3b3b;
+  --color-on-background: #1a1c1c;
+  --color-surface-tint: #5e5e5e;
+  --color-outline-variant: #c6c6c6;
+  --color-primary-fixed-dim: #474747;
+  --color-tertiary-container: #767474;
+  --color-surface-variant: #e2e2e2;
+  --color-background: #f9f9f9;
+  --color-secondary-fixed: #c8c6c6;
+  --color-secondary: #5f5e5e;
+  --color-on-error: #ffffff;
+  --color-on-primary-fixed-variant: #e2e2e2;
+  --color-surface-container-low: #f3f3f3;
+  --color-surface-dim: #dadada;
+  --color-secondary-fixed-dim: #acabab;
+  --color-primary-fixed: #5e5e5e;
+  --color-on-surface: #1a1c1c;
+  --color-on-secondary-container: #1b1c1c;
+  --color-outline: #777777;
+  --color-on-secondary: #ffffff;
+  --color-inverse-primary: #c6c6c6;
+  --color-primary-container: #3b3b3b;
+  --color-surface-bright: #f9f9f9;
+  --color-inverse-surface: #2f3131;
+  --color-tertiary-fixed: #5f5e5e;
+  --color-tertiary-fixed-dim: #474646;
+  --color-surface-container-lowest: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-primary-fixed: #ffffff;
+  --color-on-primary-container: #ffffff;
+  --color-on-tertiary-fixed-variant: #e5e2e1;
+  --color-on-tertiary-fixed: #ffffff;
+  --color-on-tertiary: #e5e2e1;
+  --color-error: #ba1a1a;
+  --color-secondary-container: #d6d4d3;
+  --color-surface-container: #eeeeee;
+  --color-inverse-on-surface: #f1f1f1;
+
+  --font-headline: var(--font-newsreader);
+  --font-body: var(--font-inter);
+  --font-label: var(--font-inter);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-body;
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+  }
+
+  ::selection {
+    @apply bg-primary text-on-primary;
+  }
+}
