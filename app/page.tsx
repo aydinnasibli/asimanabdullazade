@@ -61,52 +61,68 @@ export default function Home() {
 
       {/* ── Current Series: The Void ─────────────────────────── */}
       <Reveal>
-        <section className="mb-48 px-6 md:px-12 max-w-[1600px] mx-auto mt-32">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
-            <h2 className="font-headline text-4xl md:text-5xl italic">Current Series: The Void</h2>
-            <div className="h-[1px] flex-grow bg-outline-variant mx-8 hidden md:block" />
-            <span className="font-label text-xs tracking-[0.3em] uppercase">2023 — 2024 Collection</span>
+        <section className="mb-48 mt-32 px-6 md:px-12 max-w-[1600px] mx-auto">
+
+          {/* Header — large italic title, hairline, tiny meta */}
+          <div className="mb-16">
+            <p className="font-label text-[10px] tracking-[0.4em] uppercase text-outline mb-4">Current Series</p>
+            <h2 className="font-headline italic text-[12vw] md:text-[7vw] leading-[0.85] tracking-tighter text-on-surface">
+              The Void
+            </h2>
+            <div className="flex justify-between items-center mt-6 pt-4 border-t border-outline-variant">
+              <span className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">Plates 01 — 03</span>
+              <span className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">2023 — 2024</span>
+            </div>
           </div>
 
-          {/* Stacked plates */}
-          <div className="space-y-12">
-            {plates.map((p) => (
-              <div key={p.number}>
-                {/* Desktop: number + wide image + title in a row */}
-                <div className="hidden md:flex items-center gap-8">
-                  <span className="font-headline text-[5vw] leading-none text-outline/20 w-16 text-right flex-shrink-0 select-none">
-                    {p.number}
-                  </span>
-                  <div className="flex-1 aspect-[16/7] overflow-hidden bg-surface-container-highest">
-                    <img
-                      alt={p.title}
-                      className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700"
-                      src={p.src}
-                    />
-                  </div>
-                  <div className="w-40 flex-shrink-0 flex flex-col gap-1">
-                    <p className="font-label text-[10px] tracking-widest text-outline uppercase">{p.plate}</p>
-                    <p className="font-body text-sm font-medium uppercase leading-snug">{p.title}</p>
-                  </div>
-                </div>
+          {/* Staggered 3-column grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
 
-                {/* Mobile: full-width image + metadata below */}
-                <div className="md:hidden space-y-4">
-                  <div className="w-full aspect-video overflow-hidden bg-surface-container-highest">
-                    <img
-                      alt={p.title}
-                      className="w-full h-full object-cover grayscale"
-                      src={p.src}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <p className="font-label text-[10px] tracking-widest text-outline uppercase">{p.plate}</p>
-                    <p className="font-body text-sm font-medium uppercase">{p.title}</p>
-                  </div>
-                </div>
+            {/* Plate 01 — portrait, top-aligned */}
+            <div className="group space-y-4">
+              <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
+                <img
+                  alt={plates[0].title}
+                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
+                  src={plates[0].src}
+                />
               </div>
-            ))}
+              <div className="flex justify-between items-baseline">
+                <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plates[0].plate}</span>
+                <span className="font-body text-xs font-medium uppercase">{plates[0].title}</span>
+              </div>
+            </div>
+
+            {/* Plate 02 — square, pushed down */}
+            <div className="group space-y-4 md:mt-24">
+              <div className="aspect-square overflow-hidden bg-surface-container-highest">
+                <img
+                  alt={plates[1].title}
+                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
+                  src={plates[1].src}
+                />
+              </div>
+              <div className="flex justify-between items-baseline">
+                <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plates[1].plate}</span>
+                <span className="font-body text-xs font-medium uppercase">{plates[1].title}</span>
+              </div>
+            </div>
+
+            {/* Plate 03 — portrait, mid offset */}
+            <div className="group space-y-4 md:mt-12">
+              <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
+                <img
+                  alt={plates[2].title}
+                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
+                  src={plates[2].src}
+                />
+              </div>
+              <div className="flex justify-between items-baseline">
+                <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plates[2].plate}</span>
+                <span className="font-body text-xs font-medium uppercase">{plates[2].title}</span>
+              </div>
+            </div>
+
           </div>
         </section>
       </Reveal>
