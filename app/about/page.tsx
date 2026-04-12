@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <main className="pt-32 pb-24 px-6 md:px-12 max-w-[1600px] mx-auto">
+    <main className="pt-32 pb-24 px-6 md:px-12 max-w-[1600px] mx-auto cursor-crosshair">
       {/* Hero Section: Asymmetrical Layout */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
         {/* Left Side: Large Portrait */}
