@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from  "@/components/Navigation";
 import Footer from  "@/components/Footer";
 import MobileNav from  "@/components/MobileNav";
+import CustomCursor from "@/components/CustomCursor";
 import { cn } from  "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -31,6 +32,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body className={`${inter.variable} ${newsreader.variable} antialiased flex flex-col min-h-screen`}>
+        <CustomCursor />
         <Navigation />
         {children}
         <Footer />

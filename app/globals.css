@@ -67,4 +67,11 @@
   ::selection {
     @apply bg-primary text-on-primary;
   }
+
+  /* Hide default cursor on pointer-fine devices (mouse); custom cursor takes over */
+  @media (pointer: fine) {
+    *, *::before, *::after {
+      cursor: none !important;
+    }
+  }
 }
