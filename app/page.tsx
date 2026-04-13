@@ -3,111 +3,83 @@ import Reveal from "@/components/Reveal";
 const MARQUEE_TEXT =
   "ARCHIVAL SILENCE\u2002—\u2002SVALBARD ARCHIPELAGO\u2002—\u2002MONOCHROMATIC\u2002—\u2002SILENT FRAME\u2002—\u2002ASIMAN ABDULLAZADE\u2002—\u20022019\u2002—\u20022024\u2002—\u2002";
 
-const plates = [
-  {
-    plate: "Plate 01",
-    title: "Geometric Monolith",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDW9OLPdV0QT_lrPKUddXOeDtL4iowBsY7h42Ud9Ir4DlXtuciUBKt20tryCMXbXFLwDKPH8f05P5vNDkHrpF1Jdg3TVRvUKuYN1RKs0Ya6yoGVmOtr2H3RmGM9rZP7zRJEfUpcbn2eiwj_ACcSJh_AgPXvUBswNC2XhCoJTf3-PVfuaP4eI9v87IBQme4IKyGfPOJo3rb8rbD7Tk4tnmwuijtiTIUYZZpXf0Nio5DnQsMYOAmzRvk-uUNZrCzfmqk_5uwU470sHVQ",
-  },
-  {
-    plate: "Plate 02",
-    title: "The Tool of Observation",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAjilNDp_cIQ0jWt6GhDR8rlgIhlU_xircEwSkhg610_dI685tMLElRMunBGWJcBCbJETVQyQQCuczqZS0NNoAqL_qe-fKj9VE0fq-7PdvXzsamuIiQARQPS7GifMiuTA3armEejUHOI6mNde37MKA3AEDQvwCOxqUuBihIN6im8i1o1uce8yEFGzwZsMmH4q80I4ojbZf1qtVdwC-I0e9sOHk7aGbJIePxnI6Smpv3777xLFU3S23jkt9ktAvw7jzQXjkX2MvFOxs",
-  },
-  {
-    plate: "Plate 03",
-    title: "Spectral Ridge",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqwuEdeSoW6cqjzP71Dr6V7qY_Uvhnd-rDh0DBCSiX2vBio6ehOQCnYGT9IWiRKCvLBz1uyjWdjGyzGItWAPC8S3fkn65EbI9H9-bGtL6ibasUQmlnR4ZuRnYoFqKl2WsJHdxrr11WQqDa2zbhp0EGfb-sTX6Bqya9zX5B-bsQwcHFZEW4wsCBCx5fYq9zU75QmT4vrjlllbdJ7Q3GFdRztfIVZYqsNNEylHHqEo0HjEjR2MvBxFmYbByC2Y8BxKcFY-y5ohA1IZQ",
-  },
-];
-
 export default function Home() {
   return (
     <main className="pt-0">
 
-      {/* ── Hero: Pure full-bleed image ─────────────────────── */}
-      <section className="relative h-screen -mt-14 overflow-hidden">
+      {/* ── Hero: Identity ──────────────────────────────────── */}
+      <section className="relative h-screen -mt-14 overflow-hidden flex items-center justify-center">
         <img
-          alt="Silent North Mountain"
+          aria-hidden
+          alt=""
           className="absolute inset-0 w-full h-full object-cover grayscale"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZMgsHzYpKZmBBhXY-j4EcxSzSDJ6HW0d1cVWcy1VImXY_SH8SoGd16Wtl76PlttxHyjjUdE5X6XpZLR0olGHVk6q96eq4vY0asYnt3OcTPgkXS-EQO0bfvYc7-hT3RqmlvtOlFNEOw-C-Q1FaVPnutMy9Ch8RhBoaHXTwbKn0Le9uIL9h2eTOjcDGvLU6Pme9e-9wq_fu67POCJ449l2TBXhw82lmXH4SnPQuzQ5mXNmXP5JyBXi_XgFWhQpZeGQq-1CH13K7oI0"
         />
-        <div className="film-grain absolute inset-0 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-black/45 z-10" />
+        <div className="film-grain absolute inset-0 pointer-events-none z-20" />
+
+        <div className="relative z-30 text-center px-6 select-none">
+          <p className="font-label text-[9px] tracking-[0.55em] uppercase text-white/35 mb-10">
+            Fine&#8209;Art Photography &nbsp;·&nbsp; Est. 2019
+          </p>
+          <h1
+            className="font-headline font-bold uppercase text-white leading-none"
+            style={{ fontSize: "clamp(2.8rem, 7vw, 6.5rem)", letterSpacing: "0.12em" }}
+          >
+            ASIMAN<br />ABDULLAZADE
+          </h1>
+          <div className="w-10 h-px bg-white/25 mx-auto mt-12" />
+        </div>
       </section>
 
-      {/* ── Series title strip ──────────────────────────────── */}
-      <div className="border-b border-outline-variant">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 flex items-baseline justify-between gap-8">
-          <div>
-            <p className="font-label text-[10px] tracking-[0.4em] uppercase text-outline mb-3">
-              Current Series
-            </p>
-            <h1 className="font-headline italic text-[10vw] md:text-[5vw] leading-[0.85] tracking-tighter text-on-surface">
-              SILENT NORTH
-            </h1>
-          </div>
-          <div className="text-right shrink-0 space-y-1">
-            <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">Svalbard Archipelago</p>
-            <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">2024</p>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Plates: The Void ────────────────────────────────── */}
+      {/* ── Practice Statement ──────────────────────────────── */}
       <Reveal>
-        <section className="mt-20 mb-40">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <section className="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-36">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20 items-center">
 
-            {/* Section header */}
-            <div className="flex items-baseline justify-between border-b border-outline-variant pb-5 mb-10">
-              <span className="font-label text-[10px] tracking-[0.4em] uppercase text-outline">
-                From the series — The Void
-              </span>
-              <span className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">
-                Plates 01–03 &nbsp;·&nbsp; 2023–2024
-              </span>
-            </div>
-
-            {/* Feature plate — landscape */}
-            <div className="group mb-4">
-              <div className="aspect-[16/9] overflow-hidden bg-surface-container-highest">
+            {/* Portrait */}
+            <div className="md:col-span-5">
+              <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
                 <img
-                  alt={plates[0].title}
-                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
-                  src={plates[0].src}
+                  alt="Asiman Abdullazade"
+                  className="w-full h-full object-cover grayscale brightness-90 hover:brightness-100 transition-all duration-700"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUfLqr9UXzTlIzo010vtQKgl0z7cz-II2ttCOZelOAHvdqsD1MUShChYAw4eq0h1jmjqg3alpf6pDOHwRJi7Wo2wZ5nIg91usI6cp4exaN5G-nkM8jebVyo98-DrCCVxX1ahoLIsqdJZbnsHHFOyM7LoejgQKQbrXhYC71BIkFdc0954punm3FTqJ9qTI4HBkUg4AcquuMRT1CX0HXyGmVa8arv1gdGj2tA00jgAtCChhBD0pa9AH9n5Ps-j10X-n-ZGHWeqUfsvg"
                 />
               </div>
-              <div className="flex justify-between items-baseline mt-3">
-                <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plates[0].plate}</span>
-                <span className="font-body text-xs font-medium uppercase">{plates[0].title}</span>
-              </div>
             </div>
 
-            {/* Portrait pair */}
-            <div className="grid grid-cols-2 gap-4">
-              {[plates[1], plates[2]].map((plate) => (
-                <div key={plate.plate} className="group">
-                  <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
-                    <img
-                      alt={plate.title}
-                      className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
-                      src={plate.src}
-                    />
-                  </div>
-                  <div className="flex justify-between items-baseline mt-3">
-                    <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plate.plate}</span>
-                    <span className="font-body text-xs font-medium uppercase">{plate.title}</span>
-                  </div>
-                </div>
-              ))}
+            {/* Text */}
+            <div className="md:col-span-7 space-y-8">
+              <p className="font-label text-[10px] tracking-[0.4em] uppercase text-outline">
+                Practice
+              </p>
+              <p className="font-headline italic text-3xl md:text-4xl leading-snug text-on-surface">
+                "Working at the boundary of silence and geological time."
+              </p>
+              <div className="space-y-5 font-body text-on-surface-variant leading-relaxed text-[15px]">
+                <p>
+                  Asiman Abdullazade's practice is built on a single conviction: that the most truthful photographs are not made in the decisive moment, but in the sustained act of waiting. Each body of work is the result of months of stillness — a meditative approach to landscapes that resist easy interpretation.
+                </p>
+                <p>
+                  Working exclusively in monochrome, Abdullazade treats the absence of colour not as a constraint but as a discipline. What remains is texture, weight, and the quality of light that only reveals itself to those patient enough to witness it.
+                </p>
+              </div>
+              <div className="pt-6 border-t border-outline-variant">
+                <span className="font-label text-xs tracking-[0.2em] uppercase font-bold block">
+                  Asiman Abdullazade
+                </span>
+                <span className="font-label text-[10px] tracking-widest text-outline uppercase block mt-1">
+                  Baku &nbsp;·&nbsp; London &nbsp;·&nbsp; High Atlas
+                </span>
+              </div>
             </div>
 
           </div>
         </section>
       </Reveal>
 
-      {/* ── Marquee strip ───────────────────────────────────── */}
-      <div aria-hidden className="overflow-hidden border-y border-outline-variant py-5 select-none mb-40">
+      {/* ── Marquee ─────────────────────────────────────────── */}
+      <div aria-hidden className="overflow-hidden border-y border-outline-variant py-5 select-none">
         <div className="flex whitespace-nowrap animate-marquee">
           <span className="font-label text-[10px] tracking-[0.35em] uppercase text-outline">
             {MARQUEE_TEXT.repeat(6)}
@@ -118,18 +90,21 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── Quote ───────────────────────────────────────────── */}
+      {/* ── Closing image ───────────────────────────────────── */}
       <Reveal>
-        <section className="mb-40 px-6 md:px-12 max-w-3xl mx-auto text-center">
-          <blockquote className="font-headline text-2xl md:text-3xl italic leading-snug text-on-surface mb-8">
-            "The noise of the modern world disappears in the arctic. What remains is not just silence, but a profound visual frequency that only the monochromatic lens can truly capture."
-          </blockquote>
-          <div className="w-8 h-px bg-outline mx-auto mb-6" />
-          <cite className="not-italic">
-            <span className="block font-label text-xs tracking-[0.2em] uppercase font-bold text-primary">Asiman Abdullazade</span>
-            <span className="block font-label text-[10px] tracking-widest text-outline uppercase mt-1">Lead Photographer</span>
-          </cite>
-        </section>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
+          <div className="aspect-[16/9] overflow-hidden bg-surface-container-highest">
+            <img
+              alt=""
+              aria-hidden
+              className="w-full h-full object-cover grayscale"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOWZGEznsK8kmmjEPAHzLuQ8FisQGoA0NhHU76ROPJYvGIiw1eW_XcfoNIx5Hc90eUqdvb9WR0zUVhRNK2aejZv4ikXLrQxrOiGltvUJF9qcZKjMeyNqXOCqPg_VfGIyE_Y9oVPaVl30K8E3Rtrxm68Qx64IgqSI4jfnp47bEggzwiFRVv0kyYxS-EbDVNJMbZpnn3c4e0PjjHqTzls7WypNjCu1jJzBGx5zAvtvmc5sOQL6QwzRbckqKZlibuqexoCd6k_Mb2zZY"
+            />
+          </div>
+          <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline mt-4 text-right">
+            Brutalist Silence &nbsp;·&nbsp; 2024
+          </p>
+        </div>
       </Reveal>
 
     </main>
