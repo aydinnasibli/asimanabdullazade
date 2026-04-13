@@ -16,9 +16,67 @@ const newsreader = Newsreader({
   variable: "--font-newsreader"
 });
 
+const siteUrl = "https://asimanabdullazade.com";
+
 export const metadata: Metadata = {
-  title: "Asiman Abdullazade | Photographer",
-  description: "Portfolio of Asiman Abdullazade, Lead Photographer.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Asiman Abdullazade | Fine-Art Photographer",
+    template: "%s | Asiman Abdullazade",
+  },
+  description:
+    "Portfolio of Asiman Abdullazade — fine-art and medium-format photographer based between London and the High Atlas. Archival prints, editorial work, and exhibition photography.",
+  keywords: [
+    "Asiman Abdullazade",
+    "fine-art photography",
+    "medium format photographer",
+    "archival prints",
+    "black and white photography",
+    "landscape photography",
+    "editorial photography",
+    "London photographer",
+    "High Atlas photography",
+  ],
+  authors: [{ name: "Asiman Abdullazade", url: siteUrl }],
+  creator: "Asiman Abdullazade",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: siteUrl,
+    siteName: "Asiman Abdullazade",
+    title: "Asiman Abdullazade | Fine-Art Photographer",
+    description:
+      "A curated archive of monolithic landscapes and architectural silence. Fine-art and medium-format photography by Asiman Abdullazade.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Asiman Abdullazade — Fine-Art Photography",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Asiman Abdullazade | Fine-Art Photographer",
+    description:
+      "A curated archive of monolithic landscapes and architectural silence. Fine-art and medium-format photography by Asiman Abdullazade.",
+    images: ["/og-image.jpg"],
+    creator: "@asimanabdullazade",
+  },
 };
 
 export default function RootLayout({

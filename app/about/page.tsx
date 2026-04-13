@@ -1,4 +1,20 @@
+import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about Asiman Abdullazade — fine-art photographer based between London and the High Atlas. Founder of the 'Silent Frame' method and creator of archival landscape photography.",
+  alternates: {
+    canonical: "https://asimanabdullazade.com/about",
+  },
+  openGraph: {
+    title: "About | Asiman Abdullazade",
+    description:
+      "Fine-art photographer based between London and the High Atlas. Archival silence, medium-format clarity, and the 'Silent Frame' method.",
+    url: "https://asimanabdullazade.com/about",
+  },
+};
 
 export default function About() {
   return (
