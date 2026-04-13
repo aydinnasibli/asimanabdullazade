@@ -13,7 +13,7 @@ export default function Home() {
           aria-hidden
           alt=""
           className="absolute inset-0 w-full h-full object-cover grayscale"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZMgsHzYpKZmBBhXY-j4EcxSzSDJ6HW0d1cVWcy1VImXY_SH8SoGd16Wtl76PlttxHyjjUdE5X6XpZLR0olGHVk6q96eq4vY0asYnt3OcTPgkXS-EQO0bfvYc7-hT3RqmlvtOlFNEOw-C-Q1FaVPnutMy9Ch8RhBoaHXTwbKn0Le9uIL9h2eTOjcDGvLU6Pme9e-9wq_fu67POCJ449l2TBXhw82lmXH4SnPQuzQ5mXNmXP5JyBXi_XgFWhQpZeGQq-1CH13K7oI0"
+          src="https://images.unsplash.com/photo-1775840535417-71811b19db5a?q=80&w=2800&auto=format&fit=crop"
         />
         <div className="absolute inset-0 bg-black/45 z-10" />
         <div className="film-grain absolute inset-0 pointer-events-none z-20" />
