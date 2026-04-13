@@ -35,7 +35,7 @@ export default function Home() {
         <div className="film-grain absolute inset-0 pointer-events-none z-10" />
       </section>
 
-      {/* ── Series reveal strip ─────────────────────────────── */}
+      {/* ── Series title strip ──────────────────────────────── */}
       <div className="border-b border-outline-variant">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 flex items-baseline justify-between gap-8">
           <div>
@@ -46,76 +46,60 @@ export default function Home() {
               SILENT NORTH
             </h1>
           </div>
-          <div className="text-right shrink-0">
-            <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">
-              Svalbard Archipelago
-            </p>
-            <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline mt-1">
-              2024
-            </p>
+          <div className="text-right shrink-0 space-y-1">
+            <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">Svalbard Archipelago</p>
+            <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">2024</p>
           </div>
         </div>
       </div>
 
-      {/* ── Current Series: The Void ─────────────────────────── */}
+      {/* ── Plates: The Void ────────────────────────────────── */}
       <Reveal>
-        <section className="mt-24 mb-40 px-6 md:px-12 max-w-7xl mx-auto">
+        <section className="mt-20 mb-40">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
 
-          <div className="mb-16">
-            <p className="font-label text-[10px] tracking-[0.4em] uppercase text-outline mb-4">
-              From the series
-            </p>
-            <h2 className="font-headline italic text-[10vw] md:text-[5.5vw] leading-[0.85] tracking-tighter text-on-surface">
-              The Void
-            </h2>
-            <div className="flex justify-between items-center mt-6 pt-4 border-t border-outline-variant">
-              <span className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">Plates 01 — 03</span>
-              <span className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">2023 — 2024</span>
+            {/* Section header */}
+            <div className="flex items-baseline justify-between border-b border-outline-variant pb-5 mb-10">
+              <span className="font-label text-[10px] tracking-[0.4em] uppercase text-outline">
+                From the series — The Void
+              </span>
+              <span className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">
+                Plates 01–03 &nbsp;·&nbsp; 2023–2024
+              </span>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-
-            <div className="group space-y-4">
-              <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
+            {/* Feature plate — landscape */}
+            <div className="group mb-4">
+              <div className="aspect-[16/9] overflow-hidden bg-surface-container-highest">
                 <img
                   alt={plates[0].title}
                   className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
                   src={plates[0].src}
                 />
               </div>
-              <div className="flex justify-between items-baseline">
+              <div className="flex justify-between items-baseline mt-3">
                 <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plates[0].plate}</span>
                 <span className="font-body text-xs font-medium uppercase">{plates[0].title}</span>
               </div>
             </div>
 
-            <div className="group space-y-4 md:mt-24">
-              <div className="aspect-square overflow-hidden bg-surface-container-highest">
-                <img
-                  alt={plates[1].title}
-                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
-                  src={plates[1].src}
-                />
-              </div>
-              <div className="flex justify-between items-baseline">
-                <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plates[1].plate}</span>
-                <span className="font-body text-xs font-medium uppercase">{plates[1].title}</span>
-              </div>
-            </div>
-
-            <div className="group space-y-4 md:mt-12">
-              <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
-                <img
-                  alt={plates[2].title}
-                  className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
-                  src={plates[2].src}
-                />
-              </div>
-              <div className="flex justify-between items-baseline">
-                <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plates[2].plate}</span>
-                <span className="font-body text-xs font-medium uppercase">{plates[2].title}</span>
-              </div>
+            {/* Portrait pair */}
+            <div className="grid grid-cols-2 gap-4">
+              {[plates[1], plates[2]].map((plate) => (
+                <div key={plate.plate} className="group">
+                  <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
+                    <img
+                      alt={plate.title}
+                      className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
+                      src={plate.src}
+                    />
+                  </div>
+                  <div className="flex justify-between items-baseline mt-3">
+                    <span className="font-label text-[10px] tracking-widest text-outline uppercase">{plate.plate}</span>
+                    <span className="font-body text-xs font-medium uppercase">{plate.title}</span>
+                  </div>
+                </div>
+              ))}
             </div>
 
           </div>
@@ -136,11 +120,11 @@ export default function Home() {
 
       {/* ── Quote ───────────────────────────────────────────── */}
       <Reveal>
-        <section className="mb-40 px-6 md:px-12 max-w-4xl mx-auto text-center">
-          <div className="w-px h-16 bg-outline-variant mx-auto mb-12" />
-          <blockquote className="font-headline text-2xl md:text-3xl lg:text-[2.6rem] italic leading-tight text-on-surface mb-10">
+        <section className="mb-40 px-6 md:px-12 max-w-3xl mx-auto text-center">
+          <blockquote className="font-headline text-2xl md:text-3xl italic leading-snug text-on-surface mb-8">
             "The noise of the modern world disappears in the arctic. What remains is not just silence, but a profound visual frequency that only the monochromatic lens can truly capture."
           </blockquote>
+          <div className="w-8 h-px bg-outline mx-auto mb-6" />
           <cite className="not-italic">
             <span className="block font-label text-xs tracking-[0.2em] uppercase font-bold text-primary">Asiman Abdullazade</span>
             <span className="block font-label text-[10px] tracking-widest text-outline uppercase mt-1">Lead Photographer</span>
