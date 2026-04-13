@@ -5,19 +5,16 @@ const MARQUEE_TEXT =
 
 const plates = [
   {
-    number: "01",
     plate: "Plate 01",
     title: "Geometric Monolith",
     src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDW9OLPdV0QT_lrPKUddXOeDtL4iowBsY7h42Ud9Ir4DlXtuciUBKt20tryCMXbXFLwDKPH8f05P5vNDkHrpF1Jdg3TVRvUKuYN1RKs0Ya6yoGVmOtr2H3RmGM9rZP7zRJEfUpcbn2eiwj_ACcSJh_AgPXvUBswNC2XhCoJTf3-PVfuaP4eI9v87IBQme4IKyGfPOJo3rb8rbD7Tk4tnmwuijtiTIUYZZpXf0Nio5DnQsMYOAmzRvk-uUNZrCzfmqk_5uwU470sHVQ",
   },
   {
-    number: "02",
     plate: "Plate 02",
     title: "The Tool of Observation",
     src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAjilNDp_cIQ0jWt6GhDR8rlgIhlU_xircEwSkhg610_dI685tMLElRMunBGWJcBCbJETVQyQQCuczqZS0NNoAqL_qe-fKj9VE0fq-7PdvXzsamuIiQARQPS7GifMiuTA3armEejUHOI6mNde37MKA3AEDQvwCOxqUuBihIN6im8i1o1uce8yEFGzwZsMmH4q80I4ojbZf1qtVdwC-I0e9sOHk7aGbJIePxnI6Smpv3777xLFU3S23jkt9ktAvw7jzQXjkX2MvFOxs",
   },
   {
-    number: "03",
     plate: "Plate 03",
     title: "Spectral Ridge",
     src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqwuEdeSoW6cqjzP71Dr6V7qY_Uvhnd-rDh0DBCSiX2vBio6ehOQCnYGT9IWiRKCvLBz1uyjWdjGyzGItWAPC8S3fkn65EbI9H9-bGtL6ibasUQmlnR4ZuRnYoFqKl2WsJHdxrr11WQqDa2zbhp0EGfb-sTX6Bqya9zX5B-bsQwcHFZEW4wsCBCx5fYq9zU75QmT4vrjlllbdJ7Q3GFdRztfIVZYqsNNEylHHqEo0HjEjR2MvBxFmYbByC2Y8BxKcFY-y5ohA1IZQ",
@@ -28,49 +25,47 @@ export default function Home() {
   return (
     <main className="pt-0">
 
-      {/* ── Hero: Full-bleed ────────────────────────────────── */}
-      <section className="relative min-h-screen -mt-14 overflow-hidden">
-        {/* Full-bleed image */}
+      {/* ── Hero: Pure full-bleed image ─────────────────────── */}
+      <section className="relative h-screen -mt-14 overflow-hidden">
         <img
           alt="Silent North Mountain"
           className="absolute inset-0 w-full h-full object-cover grayscale"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZMgsHzYpKZmBBhXY-j4EcxSzSDJ6HW0d1cVWcy1VImXY_SH8SoGd16Wtl76PlttxHyjjUdE5X6XpZLR0olGHVk6q96eq4vY0asYnt3OcTPgkXS-EQO0bfvYc7-hT3RqmlvtOlFNEOw-C-Q1FaVPnutMy9Ch8RhBoaHXTwbKn0Le9uIL9h2eTOjcDGvLU6Pme9e-9wq_fu67POCJ449l2TBXhw82lmXH4SnPQuzQ5mXNmXP5JyBXi_XgFWhQpZeGQq-1CH13K7oI0"
         />
-        {/* Film grain */}
         <div className="film-grain absolute inset-0 pointer-events-none z-10" />
-        {/* Gradient for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent z-20" />
-        {/* Text overlay — bottom anchored */}
-        <div className="absolute inset-0 z-30 flex flex-col justify-end px-6 md:px-12 pb-12 md:pb-16">
-          <div className="flex items-end justify-between">
-            <div>
-              <p className="font-label text-[10px] tracking-[0.4em] uppercase text-white/50 mb-4">
-                Current Series
-              </p>
-              <h1 className="font-headline italic text-white leading-[0.85] tracking-tighter text-[16vw] md:text-[9vw]">
-                SILENT<br />NORTH
-              </h1>
-              <p className="font-label text-[10px] tracking-[0.3em] uppercase text-white/50 mt-5">
-                Svalbard Archipelago &nbsp;·&nbsp; 2024
-              </p>
-            </div>
-            {/* Scroll indicator — desktop only */}
-            <div className="hidden md:flex flex-col items-center gap-3 pb-1">
-              <span className="font-label text-[9px] tracking-[0.3em] uppercase text-white/30">Scroll</span>
-              <div className="w-px h-14 bg-white/20" />
-            </div>
+      </section>
+
+      {/* ── Series reveal strip ─────────────────────────────── */}
+      <div className="border-b border-outline-variant">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 flex items-baseline justify-between gap-8">
+          <div>
+            <p className="font-label text-[10px] tracking-[0.4em] uppercase text-outline mb-3">
+              Current Series
+            </p>
+            <h1 className="font-headline italic text-[10vw] md:text-[5vw] leading-[0.85] tracking-tighter text-on-surface">
+              SILENT NORTH
+            </h1>
+          </div>
+          <div className="text-right shrink-0">
+            <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline">
+              Svalbard Archipelago
+            </p>
+            <p className="font-label text-[10px] tracking-[0.3em] uppercase text-outline mt-1">
+              2024
+            </p>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* ── Current Series: The Void ─────────────────────────── */}
       <Reveal>
-        <section className="mb-48 mt-32 px-6 md:px-12 max-w-[1600px] mx-auto">
+        <section className="mt-24 mb-40 px-6 md:px-12 max-w-7xl mx-auto">
 
-          {/* Header — large italic title, hairline, tiny meta */}
           <div className="mb-16">
-            <p className="font-label text-[10px] tracking-[0.4em] uppercase text-outline mb-4">Current Series</p>
-            <h2 className="font-headline italic text-[12vw] md:text-[7vw] leading-[0.85] tracking-tighter text-on-surface">
+            <p className="font-label text-[10px] tracking-[0.4em] uppercase text-outline mb-4">
+              From the series
+            </p>
+            <h2 className="font-headline italic text-[10vw] md:text-[5.5vw] leading-[0.85] tracking-tighter text-on-surface">
               The Void
             </h2>
             <div className="flex justify-between items-center mt-6 pt-4 border-t border-outline-variant">
@@ -79,10 +74,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Staggered 3-column grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
 
-            {/* Plate 01 — portrait, top-aligned */}
             <div className="group space-y-4">
               <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
                 <img
@@ -97,7 +90,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Plate 02 — square, pushed down */}
             <div className="group space-y-4 md:mt-24">
               <div className="aspect-square overflow-hidden bg-surface-container-highest">
                 <img
@@ -112,7 +104,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Plate 03 — portrait, mid offset */}
             <div className="group space-y-4 md:mt-12">
               <div className="aspect-[3/4] overflow-hidden bg-surface-container-highest">
                 <img
@@ -132,7 +123,7 @@ export default function Home() {
       </Reveal>
 
       {/* ── Marquee strip ───────────────────────────────────── */}
-      <div aria-hidden className="overflow-hidden border-y border-outline-variant py-5 select-none mb-48">
+      <div aria-hidden className="overflow-hidden border-y border-outline-variant py-5 select-none mb-40">
         <div className="flex whitespace-nowrap animate-marquee">
           <span className="font-label text-[10px] tracking-[0.35em] uppercase text-outline">
             {MARQUEE_TEXT.repeat(6)}
@@ -145,9 +136,9 @@ export default function Home() {
 
       {/* ── Quote ───────────────────────────────────────────── */}
       <Reveal>
-        <section className="mb-48 px-6 md:px-12 max-w-5xl mx-auto text-center">
-          <span className="material-symbols-outlined text-4xl text-outline mb-8">format_quote</span>
-          <blockquote className="font-headline text-2xl md:text-3xl lg:text-5xl italic leading-tight text-on-surface mb-12">
+        <section className="mb-40 px-6 md:px-12 max-w-4xl mx-auto text-center">
+          <div className="w-px h-16 bg-outline-variant mx-auto mb-12" />
+          <blockquote className="font-headline text-2xl md:text-3xl lg:text-[2.6rem] italic leading-tight text-on-surface mb-10">
             "The noise of the modern world disappears in the arctic. What remains is not just silence, but a profound visual frequency that only the monochromatic lens can truly capture."
           </blockquote>
           <cite className="not-italic">
