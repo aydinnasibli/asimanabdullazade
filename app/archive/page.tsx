@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Reveal from "@/components/Reveal";
 
 const collections = [
   {
@@ -60,86 +61,89 @@ export default function Archive() {
     <main className="flex-grow pt-12 md:pt-20 pb-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Archive Header */}
-        <header className="mb-16 md:mb-24 max-w-4xl">
-          <h1 className="font-headline text-5xl md:text-7xl font-normal tracking-tight mb-8">
-            Selected Archives
-          </h1>
-          <p className="font-body text-zinc-500 max-w-xl leading-relaxed">
-            A chronological index of photographic explorations. A visual record of silence, texture,
-            and the dialogue between light and monolithic landscapes.
-          </p>
-        </header>
+        <Reveal>
+          <header className="mb-16 md:mb-24 max-w-4xl">
+            <h1 className="font-headline text-5xl md:text-7xl font-normal tracking-tight mb-8">
+              Selected Archives
+            </h1>
+            <p className="font-body text-zinc-500 max-w-xl leading-relaxed">
+              A chronological index of photographic explorations. A visual record of silence, texture,
+              and the dialogue between light and monolithic landscapes.
+            </p>
+          </header>
+        </Reveal>
 
         {/* Split layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           {/* Left: scrollable list */}
           <div className="col-span-full md:col-span-7 border-t border-outline-variant">
             {collections.map((col, i) => (
-              <a
-                key={col.index}
-                href="#"
-                className="group block border-b border-outline-variant"
-                onMouseEnter={() => setHovered(i)}
-              >
-                {/* Mobile: thumbnail row */}
-                <div className="flex md:hidden items-center gap-6 py-6">
-                  <div className="w-14 h-18 flex-shrink-0 bg-surface-container-highest overflow-hidden"
-                    style={{ height: "72px" }}>
-                    <img
-                      src={col.src}
-                      alt={col.title}
-                      className="w-full h-full object-cover grayscale"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="font-label text-[10px] tracking-widest text-outline uppercase">
-                      {col.index} — {col.year}
-                    </span>
-                    <h2 className="font-headline text-2xl tracking-tight mt-1 truncate">{col.title}</h2>
-                  </div>
-                  <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors flex-shrink-0">
-                    arrow_outward
-                  </span>
-                </div>
-
-                {/* Desktop: full row */}
-                <div className="hidden md:flex items-center justify-between gap-8 py-10">
-                  <div className="flex items-baseline gap-8">
-                    <span className="font-label text-[10px] text-outline w-6 flex-shrink-0">
-                      {col.index}
-                    </span>
-                    <h2
-                      className={`font-headline text-4xl tracking-tight transition-all duration-300 ease-out ${
-                        hovered === i ? "italic" : ""
-                      }`}
-                    >
-                      {col.title}
-                    </h2>
-                  </div>
-                  <div className="flex items-center gap-10 flex-shrink-0 text-right">
-                    <div className="hidden lg:block">
-                      <span className="font-label text-[10px] tracking-widest text-outline block uppercase">
-                        Format
-                      </span>
-                      <span className="font-body text-xs uppercase">{col.format}</span>
+              <Reveal key={col.index} delay={i * 100}>
+                <a
+                  href="#"
+                  className="group block border-b border-outline-variant"
+                  onMouseEnter={() => setHovered(i)}
+                >
+                  {/* Mobile: thumbnail row */}
+                  <div className="flex md:hidden items-center gap-6 py-6">
+                    <div className="w-14 h-18 flex-shrink-0 bg-surface-container-highest overflow-hidden"
+                      style={{ height: "72px" }}>
+                      <img
+                        src={col.src}
+                        alt={col.title}
+                        className="w-full h-full object-cover grayscale"
+                      />
                     </div>
-                    <div>
-                      <span className="font-label text-[10px] tracking-widest text-outline block uppercase">
-                        Year
+                    <div className="flex-1 min-w-0">
+                      <span className="font-label text-[10px] tracking-widest text-outline uppercase">
+                        {col.index} — {col.year}
                       </span>
-                      <span className="font-body text-xs uppercase">{col.year}</span>
+                      <h2 className="font-headline text-2xl tracking-tight mt-1 truncate">{col.title}</h2>
                     </div>
-                    <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors">
+                    <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors flex-shrink-0">
                       arrow_outward
                     </span>
                   </div>
-                </div>
-              </a>
+
+                  {/* Desktop: full row */}
+                  <div className="hidden md:flex items-center justify-between gap-8 py-10">
+                    <div className="flex items-baseline gap-8">
+                      <span className="font-label text-[10px] text-outline w-6 flex-shrink-0">
+                        {col.index}
+                      </span>
+                      <h2
+                        className={`font-headline text-4xl tracking-tight transition-all duration-300 ease-out ${
+                          hovered === i ? "italic" : ""
+                        }`}
+                      >
+                        {col.title}
+                      </h2>
+                    </div>
+                    <div className="flex items-center gap-10 flex-shrink-0 text-right">
+                      <div className="hidden lg:block">
+                        <span className="font-label text-[10px] tracking-widest text-outline block uppercase">
+                          Format
+                        </span>
+                        <span className="font-body text-xs uppercase">{col.format}</span>
+                      </div>
+                      <div>
+                        <span className="font-label text-[10px] tracking-widest text-outline block uppercase">
+                          Year
+                        </span>
+                        <span className="font-body text-xs uppercase">{col.year}</span>
+                      </div>
+                      <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors">
+                        arrow_outward
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </Reveal>
             ))}
           </div>
 
           {/* Right: sticky image panel (desktop only) */}
-          <div className="hidden md:block md:col-span-4 md:col-start-9 pl-10">
+          <Reveal delay={400} className="hidden md:block md:col-span-4 md:col-start-9 pl-10">
             <div className="sticky top-40">
               <div className="relative aspect-[3/4] bg-surface-container-highest overflow-hidden">
                 {collections.map((col, i) => (
@@ -147,8 +151,8 @@ export default function Archive() {
                     key={col.index}
                     src={col.src}
                     alt={col.title}
-                    className={`absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-500 ease-out ${
-                      hovered === i ? "opacity-100" : "opacity-0"
+                    className={`absolute inset-0 w-full h-full object-cover grayscale transition-all duration-[1.5s] ease-out ${
+                       hovered === i ? "opacity-100 scale-100" : "opacity-0 scale-105"
                     }`}
                   />
                 ))}
@@ -162,15 +166,17 @@ export default function Archive() {
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Pagination */}
-        <div className="mt-24 flex justify-center">
-          <button className="font-label text-[10px] tracking-[0.4em] uppercase border-b border-black pb-2 hover:opacity-50 transition-opacity">
-            VIEW FULL CATALOGUE
-          </button>
-        </div>
+        <Reveal delay={200}>
+          <div className="mt-24 flex justify-center">
+            <button className="font-label text-[10px] tracking-[0.4em] uppercase border-b border-black pb-2 hover:opacity-50 transition-opacity">
+              VIEW FULL CATALOGUE
+            </button>
+          </div>
+        </Reveal>
       </div>
     </main>
   );

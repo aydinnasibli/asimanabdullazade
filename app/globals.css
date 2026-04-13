@@ -58,6 +58,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-on-surface font-body;
     background-color: var(--color-background);
@@ -112,4 +116,22 @@
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+/* ── Global Page Transitions ─────────────────────────────── */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.animate-page-enter {
+  animation: pageFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
