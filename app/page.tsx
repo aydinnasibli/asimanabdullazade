@@ -31,7 +31,7 @@ export default function Home() {
       {/* ── Hero: Viewport Split ─────────────────────────────── */}
       <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left: typography + meta */}
-        <div className="flex flex-col justify-between px-6 md:px-12 pt-32 pb-12 lg:pt-40 lg:pb-16">
+        <div className="flex flex-col justify-between px-6 md:px-12 pt-6 pb-12 lg:pt-16 lg:pb-16">
           <div className="flex-1 flex items-center">
             <h1 className="font-headline italic leading-[0.85] tracking-tighter text-on-surface text-[18vw] lg:text-[9vw]">
               SILENT<br />NORTH

@@ -17,27 +17,51 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 bg-[#f9f9f9]/70 backdrop-blur-md flex justify-between items-center px-6 md:px-12 py-8">
-        <div className="font-headline font-bold text-2xl tracking-widest text-black uppercase">
+      {/* ── Desktop: Vertical Left Sidebar ─────────────────── */}
+      <nav className="hidden md:flex fixed left-0 top-0 h-full w-20 z-50 bg-[#f9f9f9] border-r border-outline-variant flex-col items-center justify-between py-10">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="font-headline font-bold text-[9px] tracking-[0.25em] uppercase text-black hover:opacity-60 transition-opacity"
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+        >
           ASIMAN ABDULLAZADE
-        </div>
-        <div className="hidden md:flex gap-12 items-center">
+        </Link>
+
+        {/* Nav Links */}
+        <div className="flex flex-col items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`font-headline italic text-lg tracking-tight transition-colors active:scale-95 duration-300 ${
+              className={`transition-all duration-300 ${
                 pathname === link.href
-                  ? "text-black border-b border-black pb-1"
-                  : "text-zinc-500 hover:text-black"
+                  ? "font-headline italic text-[10px] text-black"
+                  : "font-label text-[9px] text-zinc-400 hover:text-black"
               }`}
+              style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
             >
               {link.name}
             </Link>
           ))}
         </div>
+
+        {/* Copyright */}
+        <span
+          className="font-label text-[9px] tracking-[0.2em] text-zinc-300 uppercase"
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+        >
+          © 2024
+        </span>
+      </nav>
+
+      {/* ── Mobile: Top Bar ────────────────────────────────── */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-16 z-50 bg-[#f9f9f9]/85 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-6">
+        <Link href="/" className="font-headline font-bold text-sm tracking-widest uppercase text-black">
+          ASIMAN ABDULLAZADE
+        </Link>
         <button
-          className="md:hidden text-black focus:outline-none"
+          className="text-black focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -48,9 +72,9 @@ export default function Navigation() {
             {isOpen ? "close" : "menu"}
           </span>
         </button>
-      </nav>
+      </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* ── Mobile: Full-Screen Overlay ────────────────────── */}
       {isOpen && (
         <div className="md:hidden fixed inset-0 z-40 bg-[#f9f9f9] flex flex-col items-center justify-center gap-12">
           {navLinks.map((link) => (
