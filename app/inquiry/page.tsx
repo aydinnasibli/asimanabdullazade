@@ -1,6 +1,6 @@
 export default function Inquiry() {
   return (
-    <main className="flex-grow pt-6 md:pt-16 pb-24 px-6 md:px-12">
+    <main className="flex-grow pt-12 md:pt-20 pb-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <header className="mb-16 md:mb-24">

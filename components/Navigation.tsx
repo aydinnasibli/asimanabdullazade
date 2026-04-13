@@ -4,64 +4,59 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+const navLinks = [
+  { index: "01", name: "PROJECTS", href: "/" },
+  { index: "02", name: "ARCHIVE", href: "/archive" },
+  { index: "03", name: "ABOUT", href: "/about" },
+  { index: "04", name: "INQUIRY", href: "/inquiry" },
+];
+
 export default function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { name: "PROJECTS", href: "/" },
-    { name: "ARCHIVE", href: "/archive" },
-    { name: "ABOUT", href: "/about" },
-    { name: "INQUIRY", href: "/inquiry" },
-  ];
-
   return (
     <>
-      {/* ── Desktop: Vertical Left Sidebar ─────────────────── */}
-      <nav className="hidden md:flex fixed left-0 top-0 h-full w-20 z-50 bg-[#f9f9f9] border-r border-outline-variant flex-col items-center justify-between py-10">
+      {/* ── Top Bar (all breakpoints) ───────────────────────── */}
+      <nav className="fixed top-0 left-0 right-0 h-14 z-50 bg-[#f9f9f9]/80 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-6 md:px-10">
         {/* Logo */}
         <Link
           href="/"
-          className="font-headline font-bold text-[9px] tracking-[0.25em] uppercase text-black hover:opacity-60 transition-opacity"
-          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+          className="font-headline font-bold text-[11px] tracking-[0.3em] uppercase text-black hover:opacity-60 transition-opacity"
         >
           ASIMAN ABDULLAZADE
         </Link>
 
-        {/* Nav Links */}
-        <div className="flex flex-col items-center gap-10">
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`transition-all duration-300 ${
-                pathname === link.href
-                  ? "font-headline italic text-[10px] text-black"
-                  : "font-label text-[9px] text-zinc-400 hover:text-black"
-              }`}
-              style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+              className="group relative flex flex-col items-center gap-[3px]"
             >
-              {link.name}
+              <span className="font-label text-[8px] tracking-[0.2em] text-outline">
+                {link.index}
+              </span>
+              <span
+                className={`font-label text-[10px] tracking-[0.15em] uppercase transition-colors duration-300 ${
+                  pathname === link.href
+                    ? "text-black font-bold"
+                    : "text-zinc-400 group-hover:text-black"
+                }`}
+              >
+                {link.name}
+              </span>
+              {pathname === link.href && (
+                <span className="absolute -bottom-[18px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-black" />
+              )}
             </Link>
           ))}
         </div>
 
-        {/* Copyright */}
-        <span
-          className="font-label text-[9px] tracking-[0.2em] text-zinc-300 uppercase"
-          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-        >
-          © 2024
-        </span>
-      </nav>
-
-      {/* ── Mobile: Top Bar ────────────────────────────────── */}
-      <div className="md:hidden fixed top-0 left-0 right-0 h-16 z-50 bg-[#f9f9f9]/85 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-6">
-        <Link href="/" className="font-headline font-bold text-sm tracking-widest uppercase text-black">
-          ASIMAN ABDULLAZADE
-        </Link>
+        {/* Mobile hamburger */}
         <button
-          className="text-black focus:outline-none"
+          className="md:hidden text-black focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -72,7 +67,7 @@ export default function Navigation() {
             {isOpen ? "close" : "menu"}
           </span>
         </button>
-      </div>
+      </nav>
 
       {/* ── Mobile: Full-Screen Overlay ────────────────────── */}
       {isOpen && (
