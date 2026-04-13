@@ -34,8 +34,10 @@ export default function RootLayout({
       <body className={`${inter.variable} ${newsreader.variable} antialiased flex flex-col min-h-screen`}>
         <CustomCursor />
         <Navigation />
-        {children}
-        <Footer />
+        <div className="flex-1 flex flex-col pt-14 max-w-screen-2xl mx-auto w-full">
+          {children}
+          <Footer />
+        </div>
         <MobileNav />
       </body>
     </html>

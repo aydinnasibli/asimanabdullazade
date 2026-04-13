@@ -57,7 +57,7 @@ export default function Archive() {
   const [hovered, setHovered] = useState(0);
 
   return (
-    <main className="flex-grow pt-40 pb-24 px-6 md:px-12">
+    <main className="flex-grow pt-12 md:pt-20 pb-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Archive Header */}
         <header className="mb-16 md:mb-24 max-w-4xl">
