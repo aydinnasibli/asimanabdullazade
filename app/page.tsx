@@ -28,34 +28,38 @@ export default function Home() {
   return (
     <main className="pt-0">
 
-      {/* ── Hero: Viewport Split ─────────────────────────────── */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-        {/* Left: typography + meta */}
-        <div className="flex flex-col justify-between px-6 md:px-12 pt-20 pb-12 lg:pt-28 lg:pb-16">
-          <div className="flex-1 flex items-center">
-            <h1 className="font-headline italic leading-[0.85] tracking-tighter text-on-surface text-[18vw] lg:text-[9vw]">
-              SILENT<br />NORTH
-            </h1>
-          </div>
-          <div className="border-t border-outline-variant pt-8 space-y-6">
-            <p className="font-body text-on-surface-variant leading-relaxed max-w-sm">
-              A study of isolation and geological permanence in the high latitudes. Captured during the winter solstice cycles by lead photographer Asiman Abdullazade.
-            </p>
+      {/* ── Hero: Full-bleed ────────────────────────────────── */}
+      <section className="relative min-h-screen -mt-14 overflow-hidden">
+        {/* Full-bleed image */}
+        <img
+          alt="Silent North Mountain"
+          className="absolute inset-0 w-full h-full object-cover grayscale"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZMgsHzYpKZmBBhXY-j4EcxSzSDJ6HW0d1cVWcy1VImXY_SH8SoGd16Wtl76PlttxHyjjUdE5X6XpZLR0olGHVk6q96eq4vY0asYnt3OcTPgkXS-EQO0bfvYc7-hT3RqmlvtOlFNEOw-C-Q1FaVPnutMy9Ch8RhBoaHXTwbKn0Le9uIL9h2eTOjcDGvLU6Pme9e-9wq_fu67POCJ449l2TBXhw82lmXH4SnPQuzQ5mXNmXP5JyBXi_XgFWhQpZeGQq-1CH13K7oI0"
+        />
+        {/* Film grain */}
+        <div className="film-grain absolute inset-0 pointer-events-none z-10" />
+        {/* Gradient for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent z-20" />
+        {/* Text overlay — bottom anchored */}
+        <div className="absolute inset-0 z-30 flex flex-col justify-end px-6 md:px-12 pb-12 md:pb-16">
+          <div className="flex items-end justify-between">
             <div>
-              <span className="font-label text-[10px] tracking-[0.2em] uppercase text-outline block">LOCATION</span>
-              <span className="font-label text-sm font-bold uppercase mt-1 block">Svalbard Archipelago</span>
+              <p className="font-label text-[10px] tracking-[0.4em] uppercase text-white/50 mb-4">
+                Current Series
+              </p>
+              <h1 className="font-headline italic text-white leading-[0.85] tracking-tighter text-[16vw] md:text-[9vw]">
+                SILENT<br />NORTH
+              </h1>
+              <p className="font-label text-[10px] tracking-[0.3em] uppercase text-white/50 mt-5">
+                Svalbard Archipelago &nbsp;·&nbsp; 2024
+              </p>
+            </div>
+            {/* Scroll indicator — desktop only */}
+            <div className="hidden md:flex flex-col items-center gap-3 pb-1">
+              <span className="font-label text-[9px] tracking-[0.3em] uppercase text-white/30">Scroll</span>
+              <div className="w-px h-14 bg-white/20" />
             </div>
           </div>
-        </div>
-
-        {/* Right: full-height image */}
-        <div className="relative h-[60vw] lg:h-auto overflow-hidden bg-surface-container">
-          <img
-            alt="Silent North Mountain"
-            className="w-full h-full object-cover grayscale"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZMgsHzYpKZmBBhXY-j4EcxSzSDJ6HW0d1cVWcy1VImXY_SH8SoGd16Wtl76PlttxHyjjUdE5X6XpZLR0olGHVk6q96eq4vY0asYnt3OcTPgkXS-EQO0bfvYc7-hT3RqmlvtOlFNEOw-C-Q1FaVPnutMy9Ch8RhBoaHXTwbKn0Le9uIL9h2eTOjcDGvLU6Pme9e-9wq_fu67POCJ449l2TBXhw82lmXH4SnPQuzQ5mXNmXP5JyBXi_XgFWhQpZeGQq-1CH13K7oI0"
-          />
-          <div className="film-grain absolute inset-0 pointer-events-none z-10" />
         </div>
       </section>
 
@@ -138,77 +142,6 @@ export default function Home() {
           </span>
         </div>
       </div>
-
-      {/* ── Archive Selection ────────────────────────────────── */}
-      <Reveal>
-        <section className="mb-48 bg-surface-container-low py-32 px-6 md:px-12">
-          <div className="max-w-7xl mx-auto">
-            <header className="mb-16">
-              <span className="font-label text-xs tracking-[0.4em] uppercase text-outline">Selected Collections</span>
-              <h2 className="font-headline text-5xl md:text-6xl mt-4">The Archive</h2>
-            </header>
-            <div className="space-y-0">
-              <a href="/archive" className="group block py-12 border-t border-outline-variant hover:bg-surface transition-colors">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="flex items-baseline gap-8">
-                    <span className="font-label text-xs text-outline">01</span>
-                    <h3 className="font-headline text-3xl md:text-4xl group-hover:italic transition-all">Ghost Harbor</h3>
-                  </div>
-                  <div className="flex gap-12 text-left md:text-right">
-                    <div className="hidden lg:block">
-                      <span className="font-label text-[10px] tracking-widest text-outline block uppercase">Format</span>
-                      <span className="font-body text-xs uppercase">35mm Archival Ink</span>
-                    </div>
-                    <div>
-                      <span className="font-label text-[10px] tracking-widest text-outline block uppercase">Year</span>
-                      <span className="font-body text-xs uppercase">2021</span>
-                    </div>
-                    <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors hidden md:block">arrow_outward</span>
-                  </div>
-                </div>
-              </a>
-              <a href="/archive" className="group block py-12 border-t border-outline-variant hover:bg-surface transition-colors">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="flex items-baseline gap-8">
-                    <span className="font-label text-xs text-outline">02</span>
-                    <h3 className="font-headline text-3xl md:text-4xl group-hover:italic transition-all">Black Desert</h3>
-                  </div>
-                  <div className="flex gap-12 text-left md:text-right">
-                    <div className="hidden lg:block">
-                      <span className="font-label text-[10px] tracking-widest text-outline block uppercase">Format</span>
-                      <span className="font-body text-xs uppercase">Medium Format Digital</span>
-                    </div>
-                    <div>
-                      <span className="font-label text-[10px] tracking-widest text-outline block uppercase">Year</span>
-                      <span className="font-body text-xs uppercase">2020</span>
-                    </div>
-                    <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors hidden md:block">arrow_outward</span>
-                  </div>
-                </div>
-              </a>
-              <a href="/archive" className="group block py-12 border-t border-b border-outline-variant hover:bg-surface transition-colors">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="flex items-baseline gap-8">
-                    <span className="font-label text-xs text-outline">03</span>
-                    <h3 className="font-headline text-3xl md:text-4xl group-hover:italic transition-all">Ethereal Frost</h3>
-                  </div>
-                  <div className="flex gap-12 text-left md:text-right">
-                    <div className="hidden lg:block">
-                      <span className="font-label text-[10px] tracking-widest text-outline block uppercase">Format</span>
-                      <span className="font-body text-xs uppercase">Infrared Exposure</span>
-                    </div>
-                    <div>
-                      <span className="font-label text-[10px] tracking-widest text-outline block uppercase">Year</span>
-                      <span className="font-body text-xs uppercase">2019</span>
-                    </div>
-                    <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors hidden md:block">arrow_outward</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </section>
-      </Reveal>
 
       {/* ── Quote ───────────────────────────────────────────── */}
       <Reveal>
