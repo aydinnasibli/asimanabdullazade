@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Inquiry",
@@ -108,11 +109,13 @@ export default function Inquiry() {
                 </div>
               </div>
               {/* Image Anchor */}
-              <div className="mt-8 aspect-[3/4] bg-surface-container overflow-hidden group">
-                <img
+              <div className="relative mt-8 aspect-[3/4] bg-surface-container overflow-hidden group">
+                <Image
+                  fill
                   alt="Minimalist architectural detail showing clean lines and soft shadows on a textured wall"
-                  className="w-full h-full object-cover filter grayscale opacity-90 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover grayscale opacity-90 group-hover:scale-105 transition-transform duration-700"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8IC3PRcXwHGCIV5zqOac2PHcpqalY4X56CseIWWGXP6B8ivkySGS3J3OAGATgIuXcYQIxoBGRSOIMRsDkuoLobfy8igayCveHR6oDOrNl9tBKqZZf40_bJNOVdIEymmp61VxiRDRmhPyJTIt6rzJGNxKRal3muCq8Yx1vqxVye0IHMPzt8VJfYk9Tyrs_WDYnVX1P9BsZz5UG4KI5EzWmO1ccwkuI8YwZAIx7Bg6oLxmUC_OY7uQjxYFmsvfvGwgFYBoSfRH67y4"
+                  sizes="(max-width: 768px) 100vw, 35vw"
                 />
               </div>
             </div>
