@@ -1,3 +1,20 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Inquiry",
+  description:
+    "Get in touch with Asiman Abdullazade for limited edition prints, commercial licensing, exhibition inquiries, or general correspondence. Studio based in Baku.",
+  alternates: {
+    canonical: "https://asimanabdullazade.com/inquiry",
+  },
+  openGraph: {
+    title: "Inquiry | Asiman Abdullazade",
+    description:
+      "Contact Asiman Abdullazade for prints, licensing, exhibitions, or general correspondence. Studio: Baku, Azerbaijan.",
+    url: "https://asimanabdullazade.com/inquiry",
+  },
+};
+
 export default function Inquiry() {
   return (
     <main className="flex-grow pt-12 md:pt-20 pb-24 px-6 md:px-12">
