@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
 const collections = [
@@ -86,12 +87,13 @@ export default function ArchiveClient() {
                 >
                   {/* Mobile: thumbnail row */}
                   <div className="flex md:hidden items-center gap-6 py-6">
-                    <div className="w-14 h-18 flex-shrink-0 bg-surface-container-highest overflow-hidden"
-                      style={{ height: "72px" }}>
-                      <img
+                    <div className="relative w-14 flex-shrink-0 bg-surface-container-highest overflow-hidden" style={{ height: "72px" }}>
+                      <Image
+                        fill
                         src={col.src}
                         alt={col.title}
-                        className="w-full h-full object-cover grayscale"
+                        className="object-cover grayscale"
+                        sizes="56px"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -147,13 +149,15 @@ export default function ArchiveClient() {
             <div className="sticky top-40">
               <div className="relative aspect-[3/4] bg-surface-container-highest overflow-hidden">
                 {collections.map((col, i) => (
-                  <img
+                  <Image
                     key={col.index}
+                    fill
                     src={col.src}
                     alt={col.title}
-                    className={`absolute inset-0 w-full h-full object-cover grayscale transition-all duration-[1.5s] ease-out ${
-                       hovered === i ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                    className={`object-cover grayscale transition-all duration-[1.5s] ease-out ${
+                      hovered === i ? "opacity-100 scale-100" : "opacity-0 scale-105"
                     }`}
+                    sizes="35vw"
                   />
                 ))}
               </div>

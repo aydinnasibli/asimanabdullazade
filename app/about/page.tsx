@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -24,11 +25,13 @@ export default function About() {
         {/* Left Side: Large Portrait */}
         <div className="lg:col-span-5 relative">
           <Reveal>
-            <div className="aspect-[4/5] bg-surface-container-highest overflow-hidden">
-              <img
+            <div className="relative aspect-[4/5] bg-surface-container-highest overflow-hidden">
+              <Image
+                fill
                 alt="Asiman Abdullazade Photographer"
-                className="w-full h-full object-cover grayscale brightness-90 hover:brightness-100 transition duration-700"
+                className="object-cover grayscale brightness-90 hover:brightness-100 transition duration-700"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUfLqr9UXzTlIzo010vtQKgl0z7cz-II2ttCOZelOAHvdqsD1MUShChYAw4eq0h1jmjqg3alpf6pDOHwRJi7Wo2wZ5nIg91usI6cp4exaN5G-nkM8jebVyo98-DrCCVxX1ahoLIsqdJZbnsHHFOyM7LoejgQKQbrXhYC71BIkFdc0954punm3FTqJ9qTI4HBkUg4AcquuMRT1CX0HXyGmVa8arv1gdGj2tA00jgAtCChhBD0pa9AH9n5Ps-j10X-n-ZGHWeqUfsvg"
+                sizes="(max-width: 1024px) 100vw, 42vw"
               />
             </div>
             <div className="mt-8">
@@ -52,7 +55,7 @@ export default function About() {
                 Our philosophy is rooted in the belief that true luxury in photography lies in intentionality. The 'Silent Frame' method involves a meditative approach to composition, often spending hours observing light shifts before a single shutter release. This patience ensures that every photograph is not just a digital file, but a curated artifact of light and shadow.
               </p>
               <p>
-                Based between London and the High Atlas, Abdullazade’s work bridges the gap between commercial precision and fine-art abstraction. Each commission is treated as a collaborative archival project, documenting the transient with a permanence that only medium-format clarity can provide.
+                Based between London and the High Atlas, Abdullazade's work bridges the gap between commercial precision and fine-art abstraction. Each commission is treated as a collaborative archival project, documenting the transient with a permanence that only medium-format clarity can provide.
               </p>
             </div>
           </Reveal>
@@ -122,29 +125,35 @@ export default function About() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Reveal delay={0}>
-            <div className="aspect-square bg-surface-container overflow-hidden">
-              <img
+            <div className="relative aspect-square bg-surface-container overflow-hidden">
+              <Image
+                fill
                 alt="Studio Interior"
-                className="w-full h-full object-cover grayscale hover:scale-105 transition duration-1000"
+                className="object-cover grayscale hover:scale-105 transition duration-1000"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvaAIyifPSlH5g9kAhk_vqOg2HAkgWw9v4DAlah9Ak_uJ11pXVI6GTcMYEcOzSJ1Ueje8y_0H7-BVrAp0L3QJO5UIoWBeXe1DdmKXQDrxLeNVxqC7VMDBuT2wXIK7W-qhLUPf1gYdrjlFwqDgdVVr7KC4Pjq2kPRLh3ht_E-6edWn0UN9Obpm9N3oogRxdsmkABVe3ErXFg82m4bvrkQSMR6-Zim11l1eBEKiwzInHGaYVbdzNBc5TJqv-5jHvl5KTKPJ9tFciFXU"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
           </Reveal>
           <Reveal delay={200}>
-            <div className="aspect-square bg-surface-container overflow-hidden">
-              <img
+            <div className="relative aspect-square bg-surface-container overflow-hidden">
+              <Image
+                fill
                 alt="Camera Detail"
-                className="w-full h-full object-cover grayscale hover:scale-105 transition duration-1000"
+                className="object-cover grayscale hover:scale-105 transition duration-1000"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2jPZ-XJZ0QWSOyvYf976JwGXVnefQBmWCMmYs9SRRjiVjqryPNozBWhtc9qlolYpc-2Ju7pFfOgs1tie3m-BuwPKGoKrD019TvSYgTzcaZf_Do9wCZdsMM4ZeterGWktFkP3bkgd3QAOIOqVLYdO9KCqhAFJo-BM49muRGffgysyy_wLHGJqtJ_Ah7bcvLUvQTjARiQEIe_CHJZv1EWYEpWfnCb22cLWhACljbbyiBWa-w4OZl4f2Tm-yTC03QkyWNjFJ_NlhR8k"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
           </Reveal>
           <Reveal delay={400}>
-            <div className="aspect-square bg-surface-container overflow-hidden">
-              <img
+            <div className="relative aspect-square bg-surface-container overflow-hidden">
+              <Image
+                fill
                 alt="Archive Drawer"
-                className="w-full h-full object-cover grayscale hover:scale-105 transition duration-1000"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA19d9J4Tm74niCEBenhCV3pRNGSUInT3_p6XltdolJPOzrB_W0eHlY1S-ZRJj2_DCYjlnJDwwvhVQFOY1t5u-UjR2cl51ZqGtRXxLUHSY6Ru5-1Y2nzOteft7YamUKFrMAwZ5wGZBNQzawCR9YOs5oaeKubv1GIPv5uf3hQMvyjLOwXQ_CktFMY7A73BytfwG5xXE1ry53HknKHlReCjitOr2t-p94IOWfze2RI_VapUogXu3LtMYppONvKmzuWAGZ6Xb0ytOp_94"
+                className="object-cover grayscale hover:scale-105 transition duration-1000"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA19d9J4Tm74niCEBenhCV3pRNGSUInT3_p6XltdolJPOzrB_W0eHlY1S-ZRJj2_DCYjlnJDwwvhVQFOY1t5u-UjR2cl51ZqGtRXxLUHSY6Ru5-1Y2nzOteft7YamUKFrMAwZ5wGZBNQzawCR9YOs5oaeKubv1GIPv5uf3hQMvyjLOwXQ_CktFMY7A73BytfwG5xXE1ry53HknKHlReCjitOr2p-94IOWfze2RI_VapUogXu3LtMYppONvKmzuWAGZ6Xb0ytOp_94"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
           </Reveal>
