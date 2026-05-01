@@ -3,30 +3,46 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const links = [
+  { name: "Photo",  href: "/photography", icon: "camera" },
+  { name: "Film",   href: "/film",        icon: "movie" },
+  { name: "Design", href: "/design",      icon: "palette" },
+  { name: "About",  href: "/about",       icon: "person" },
+];
+
 export default function MobileNav() {
   const pathname = usePathname();
 
-  const links = [
-    { name: "PROJECTS", href: "/", icon: "grid_view" },
-    { name: "ARCHIVE", href: "/archive", icon: "inventory_2" },
-    { name: "ABOUT", href: "/about", icon: "person" },
-    { name: "INQUIRY", href: "/inquiry", icon: "mail" },
-  ];
-
   return (
-    <div className="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-lg flex justify-around items-center py-4 border-t border-outline-variant z-50">
+    <div
+      className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-4 border-t z-50"
+      style={{
+        background: "color-mix(in oklch, var(--bg) 92%, transparent)",
+        backdropFilter: "blur(12px)",
+        borderColor: "var(--rule)",
+      }}
+    >
       {links.map((link) => (
         <Link
           key={link.name}
           href={link.href}
-          className={`flex flex-col items-center transition-colors ${
-            pathname === link.href ? "text-black" : "text-zinc-400 hover:text-zinc-600"
-          }`}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 4,
+            color: pathname === link.href ? "var(--ink)" : "var(--ink-faint)",
+            textDecoration: "none",
+            transition: "color 0.2s",
+          }}
         >
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24" }}>
+          <span
+            className="material-symbols-outlined"
+            style={{ fontSize: 22, fontVariationSettings: "'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24" }}
+          >
             {link.icon}
           </span>
-          <span className="text-[8px] tracking-widest mt-1 font-label uppercase">
+          <span style={{ fontSize: 8, letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "var(--font-dm-sans), sans-serif" }}>
             {link.name}
           </span>
         </Link>
