@@ -53,7 +53,7 @@ function FilmPanel() {
       />
       <video
         ref={videoRef}
-        src="https://media.w3.org/2010/05/sintel/trailer.mp4"
+        src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         muted
         loop
         playsInline
