@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: "Short films, documentaries and experimental work by Asiman Abdullazade.",
 };
 
-export const dynamic = "force-dynamic";
 
 export default async function Film() {
   const films = await getFilms();

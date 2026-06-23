@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description: "Brand identity, editorial systems, and art direction by Asiman Abdullazade.",
 };
 
-export const dynamic = "force-dynamic";
 
 export default async function Design() {
   const projects = await getDesignProjects();
