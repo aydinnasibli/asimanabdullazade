@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 
 const COOKIE_NAME = "admin_session";
 const MAX_AGE = 60 * 60 * 24 * 7; // 7 days
+const MAX_AGE_MS = MAX_AGE * 1000;
 
 function getSecret() {
   const secret = process.env.AUTH_SECRET;
@@ -25,6 +26,12 @@ function verify(signed: string): string | null {
     const b = Buffer.from(expected);
     if (a.length !== b.length) return null;
     if (!timingSafeEqual(a, b)) return null;
+
+    // Check session expiry
+    const parts = value.split(":");
+    const timestamp = parseInt(parts[1], 10);
+    if (isNaN(timestamp) || Date.now() - timestamp > MAX_AGE_MS) return null;
+
     return value;
   } catch {
     return null;

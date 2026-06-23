@@ -8,6 +8,7 @@ interface PhotographyItem {
   year: string;
   count: string;
   format: string;
+  images: string[];
 }
 
 export default function PhotographyList({
@@ -24,6 +25,7 @@ export default function PhotographyList({
     title: item.title,
     year: item.year,
     subtitle: `${item.count} · ${item.format}`,
+    thumbnail: item.images?.[0],
   }));
 
   return (

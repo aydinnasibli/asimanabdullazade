@@ -27,9 +27,9 @@ export default async function About() {
 
   return (
     <div className="page-animate" style={{ paddingTop: 40 }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 40px" }}>
+      <div className="content-wrap" style={{ maxWidth: 1100 }}>
 
-        <div style={{ display: "grid", gridTemplateColumns: "5fr 7fr", gap: 72, alignItems: "start", marginBottom: 96 }}>
+        <div className="grid-about" style={{ marginBottom: 96 }}>
 
           {/* Portrait column */}
           <Reveal>

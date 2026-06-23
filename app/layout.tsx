@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-import ThemeToggle from "@/components/ThemeToggle";
+import LayoutShell from "@/components/LayoutShell";
 import { cn } from "@/lib/utils";
 
 const cormorant = Cormorant_Garamond({
@@ -52,6 +51,12 @@ export const metadata: Metadata = {
     description:
       "Photographer, filmmaker, and designer based in Baku, Azerbaijan.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Asiman Abdullazade",
+    description:
+      "Photographer, filmmaker, and designer based in Baku, Azerbaijan.",
+  },
 };
 
 export default function RootLayout({
@@ -60,11 +65,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(cormorant.variable, dmSans.variable)}>
       <body className="antialiased flex flex-col min-h-screen">
-        <Navigation />
-        <main className="flex-1 flex flex-col" style={{ paddingTop: 56 }}>
+        <LayoutShell />
+        <main className="flex-1 flex flex-col">
           {children}
         </main>
-        <ThemeToggle />
       </body>
     </html>
   );

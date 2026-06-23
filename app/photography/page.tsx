@@ -7,6 +7,7 @@ import { getPhotographySeries } from "@/lib/actions/photography";
 export const metadata: Metadata = {
   title: "Photography",
   description: "Medium-format landscapes, architectural studies, and portrait work by Asiman Abdullazade.",
+  alternates: { canonical: "https://asimanabdullazade.com/photography" },
 };
 
 
@@ -15,7 +16,7 @@ export default async function Photography() {
 
   return (
     <div className="page-animate" style={{ paddingTop: 40 }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
+      <div className="content-wrap">
 
         <Reveal>
           <div style={{ marginBottom: 64, borderBottom: "1px solid var(--rule)", paddingBottom: 32, display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24 }}>
@@ -37,7 +38,7 @@ export default async function Photography() {
             : s.images;
           return (
             <Reveal key={s._id} delay={i * 80}>
-              <div style={{ display: "grid", gridTemplateColumns: i % 2 === 0 ? "5fr 3fr" : "3fr 5fr", gap: 20, marginBottom: 56 }}>
+              <div className={`grid-photo ${i % 2 === 0 ? "grid-photo-a" : "grid-photo-b"}`}>
                 {imgs.map((img: string, j: number) => (
                   <div key={j} className="img-zoom-hover" style={{ position: "relative", paddingBottom: j === 0 ? "66%" : "90%", background: "var(--bg-warm)" }}>
                     <Image

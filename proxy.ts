@@ -1,32 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createHmac, timingSafeEqual } from "crypto";
 
-async function verifyToken(signed: string, secret: string): Promise<boolean> {
+const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+function verifyToken(signed: string, secret: string): boolean {
   const idx = signed.lastIndexOf(".");
   if (idx === -1) return false;
   const value = signed.slice(0, idx);
   const providedSig = signed.slice(idx + 1);
 
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(secret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"]
-  );
-  const sigBuf = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(value));
-  const expectedSig = Array.from(new Uint8Array(sigBuf))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
+  // Check session expiry
+  const parts = value.split(":");
+  const timestamp = parseInt(parts[1], 10);
+  if (isNaN(timestamp) || Date.now() - timestamp > MAX_AGE_MS) return false;
 
-  if (providedSig.length !== expectedSig.length) return false;
-  let mismatch = 0;
-  for (let i = 0; i < providedSig.length; i++) {
-    mismatch |= providedSig.charCodeAt(i) ^ expectedSig.charCodeAt(i);
+  // Verify HMAC signature with Node.js crypto
+  const expectedSig = createHmac("sha256", secret).update(value).digest("hex");
+
+  try {
+    const a = Buffer.from(providedSig);
+    const b = Buffer.from(expectedSig);
+    if (a.length !== b.length) return false;
+    return timingSafeEqual(a, b);
+  } catch {
+    return false;
   }
-  return mismatch === 0;
 }
 
-export async function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname === "/admin/login") {
@@ -36,7 +37,7 @@ export async function middleware(request: NextRequest) {
   const token = request.cookies.get("admin_session")?.value;
   const secret = process.env.AUTH_SECRET;
 
-  if (!token || !secret || !(await verifyToken(token, secret))) {
+  if (!token || !secret || !verifyToken(token, secret)) {
     if (pathname.startsWith("/api/")) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -55,5 +56,6 @@ export const config = {
     "/api/design/:path*",
     "/api/about/:path*",
     "/api/home/:path*",
+    "/api/auth/logout",
   ],
 };

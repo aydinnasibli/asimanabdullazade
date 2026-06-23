@@ -8,6 +8,7 @@ import { getFilms } from "@/lib/actions/film";
 export const metadata: Metadata = {
   title: "Film",
   description: "Short films, documentaries and experimental work by Asiman Abdullazade.",
+  alternates: { canonical: "https://asimanabdullazade.com/film" },
 };
 
 
@@ -18,7 +19,7 @@ export default async function Film() {
 
   return (
     <div className="page-animate" style={{ paddingTop: 40 }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
+      <div className="content-wrap">
 
         <Reveal>
           <div style={{ marginBottom: 64, borderBottom: "1px solid var(--rule)", paddingBottom: 32, display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24 }}>
@@ -50,7 +51,7 @@ export default async function Film() {
         {/* Film list */}
         {otherFilms.map((film: { _id: string; title: string; year: string; duration: string; type: string; description: string; thumbnailUrl: string; youtubeUrl: string }, i: number) => (
           <Reveal key={film._id} delay={i * 70}>
-            <div style={{ display: "grid", gridTemplateColumns: "2fr 3fr", gap: 40, paddingBottom: 48, marginBottom: 48, borderBottom: "1px solid var(--rule)" }}>
+            <div className="grid-film" style={{ paddingBottom: 48, marginBottom: 48, borderBottom: "1px solid var(--rule)" }}>
               <div style={{ position: "relative" }}>
                 {film.youtubeUrl ? (
                   <YouTubePlayer

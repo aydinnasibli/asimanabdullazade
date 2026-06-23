@@ -7,6 +7,7 @@ interface DesignItem {
   title: string;
   year: string;
   category: string;
+  images: string[];
 }
 
 export default function DesignList({
@@ -23,6 +24,7 @@ export default function DesignList({
     title: item.title,
     year: item.year,
     subtitle: item.category,
+    thumbnail: item.images?.[0],
   }));
 
   return (

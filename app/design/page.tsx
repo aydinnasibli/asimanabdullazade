@@ -7,6 +7,7 @@ import { getDesignProjects } from "@/lib/actions/design";
 export const metadata: Metadata = {
   title: "Design",
   description: "Brand identity, editorial systems, and art direction by Asiman Abdullazade.",
+  alternates: { canonical: "https://asimanabdullazade.com/design" },
 };
 
 
@@ -15,7 +16,7 @@ export default async function Design() {
 
   return (
     <div className="page-animate" style={{ paddingTop: 40 }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
+      <div className="content-wrap">
 
         <Reveal>
           <div style={{ marginBottom: 64, borderBottom: "1px solid var(--rule)", paddingBottom: 32, display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24 }}>
@@ -31,7 +32,7 @@ export default async function Design() {
           </div>
         </Reveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 40 }}>
+        <div className="grid-design">
           {projects.map((p: { _id: string; title: string; year: string; category: string; description: string; images: string[] }, i: number) => (
             <Reveal key={p._id} delay={i * 80}>
               <div className="img-zoom-hover" style={{ cursor: "pointer" }}>

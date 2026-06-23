@@ -8,6 +8,7 @@ interface FilmItem {
   year: string;
   type: string;
   duration: string;
+  thumbnailUrl: string;
 }
 
 export default function FilmList({
@@ -24,6 +25,7 @@ export default function FilmList({
     title: item.title,
     year: item.year,
     subtitle: `${item.type} · ${item.duration}`,
+    thumbnail: item.thumbnailUrl,
   }));
 
   return (

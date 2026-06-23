@@ -33,7 +33,7 @@ export default function Navigation() {
         <Link href="/" className="nav-logo">
           Asiman Abdullazade
         </Link>
-        <div className="nav-links" style={{ display: "flex" }}>
+        <div className="nav-links">
           {navLinks.map((l) => (
             <Link
               key={l.id}
