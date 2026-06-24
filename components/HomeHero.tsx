@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 
 interface HomeData {
@@ -53,6 +54,7 @@ function FilmPanel({ img, video }: { img: string; video: string }) {
       onMouseLeave={handleLeave}
       style={{ textDecoration: "none" }}
     >
+      {/* Needs ref for video swap — can't use next/image */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       {img && (
         <img
@@ -102,9 +104,15 @@ export default function HomeHero() {
     <div className="hero-root">
       <div className="hero-split">
         <Link href="/photography" className="hero-panel" style={{ textDecoration: "none" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           {data.photographyHeroImage && (
-            <img src={data.photographyHeroImage} alt="Photography" className="hero-panel-img" />
+            <Image
+              fill
+              src={data.photographyHeroImage}
+              alt="Photography"
+              className="hero-panel-img"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              priority
+            />
           )}
           <div className="hero-panel-scrim" />
           <div className="hero-panel-ghost">Photography</div>
@@ -119,9 +127,15 @@ export default function HomeHero() {
         <FilmPanel img={data.filmHeroImage} video={data.filmHeroVideo} />
 
         <Link href="/design" className="hero-panel" style={{ textDecoration: "none" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           {data.designHeroImage && (
-            <img src={data.designHeroImage} alt="Design" className="hero-panel-img" />
+            <Image
+              fill
+              src={data.designHeroImage}
+              alt="Design"
+              className="hero-panel-img"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              priority
+            />
           )}
           <div className="hero-panel-scrim" />
           <div className="hero-panel-ghost">Design</div>
